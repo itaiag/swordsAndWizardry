@@ -13,7 +13,7 @@ const MonsterTable: React.FC = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 0 }} aria-label="simple table">
+      <Table sx={{ minWidth: 0,  marginRight: 1 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell align='right'>שם</TableCell>

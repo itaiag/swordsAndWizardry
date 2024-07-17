@@ -2,13 +2,8 @@ import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 import { monsters } from '../../Data/Monsters';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
-
-interface Monster {
-  שם: string;
-  'דירוג קושי': string;
-  // Add other fields as needed
-}
 
 const ViewMonster: React.FC = () => {
     
@@ -17,15 +12,15 @@ const ViewMonster: React.FC = () => {
   const monsterName = params.get('name');
   const monster = monsters.find(monster => monster["שם"] === monsterName);
   const navigate = useNavigate();
-//   const monster = null;
 
   if (!monster) {
     return <div>Monster not found</div>;
   }
 
   return (
-    <div>
+    <div style={{ marginRight: '20px' }}>
       <h1>{monster.שם}</h1>
+      <Divider />
       <p>קושי דירוג: {monster['דירוג קושי']}</p>
       <p>קב"פ: {monster['קב"פ']}</p>
       <p>התקפות: {monster['התקפות']}</p>
