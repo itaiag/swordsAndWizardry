@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import {monsters} from '../../Data/Monsters'
 
 
-export default function BasicTable() {
+const MonsterTable: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleRowClick = (monsterName: string) => {
+    navigate(`/monster?name=${encodeURIComponent(monsterName)}`);
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -19,7 +25,7 @@ export default function BasicTable() {
             <TableRow 
             key={monster.שם} 
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            onClick={() => window.location.href = `/monster?name=${encodeURIComponent(monster.שם)}`} // Use encodeURIComponent for encoding the name
+            onClick={() => handleRowClick(monster.שם)}
             >
               <TableCell align="right" component="th" scope="row">
                 {monster.שם}
@@ -32,3 +38,5 @@ export default function BasicTable() {
     </TableContainer>
   );
 }
+
+export default MonsterTable;
