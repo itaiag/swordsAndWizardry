@@ -1,286 +1,297 @@
 class Item {
     constructor(public name: string, public value: number) { }
 
-    public toString = () : string => {
+    public toString = (): string => {
         return `Item (name: ${this.name}, value: ${this.value})`;
     }
 }
 
-export function calculateItems(experience: number) : Array<Item> {
-    const multiplier = Math.floor(Math.random() * 3) + 2;
-        let gold = experience * multiplier;
-        console.log("Initial gold: " + gold);
-        let items: Array<Item> = [];
-        const jewleryProbability = Math.floor(gold / 100);
-        for (let i = 0; i < jewleryProbability; i++) {
-            let diceRoll = Math.floor(Math.random() * 10) + 1;
-            console.log(diceRoll);
-            if (diceRoll === 10) {
-                diceRoll = Math.floor(Math.random() * 20) + 1;
-                gold -= 100;
-                console.log(diceRoll);
-                if (diceRoll < 20) {
-                    console.log("Rolling for simple gem");
-                    let goldValue = 0;
-                    switch (Math.floor(Math.random() * 4) + 1) {
-                        case 1:
-                            goldValue = Math.floor(Math.random() * 6) + 1;
-                            items.push(new Item("אבן חן פשוטה", goldValue));
-                            break;
-                        case 2:
-                            goldValue = Math.floor(Math.random() * 100) + 1 + 25;
-                            items.push(new Item("אבן חן פשוטה", goldValue));
-                            break;
-                        case 3:
-                            goldValue = Math.floor(Math.random() * 100) + 1 + 75;
-                            items.push(new Item("אבן חן פשוטה", goldValue));
-                            break;
-                        case 4:
-                            goldValue = (Math.floor(Math.random() * 100) + 1) * 10;
-                            items.push(new Item("אבן חן פשוטה", goldValue));
-                            break;
-                    }
+function rollDice(sides: number): number {
+    const result =  Math.floor(Math.random() * sides) + 1;
+    console.log(`Rolling a ${sides} sided dice. Result: ${result}`);
+    return result; 
+}
 
-                } else {
-                    console.log("Rolling for simple magical item");
-                    switch (Math.floor(Math.random() * 4) + 1) {
-                        case 1:
-                            console.log("Rolling for potion");
-                            switch (Math.floor(Math.random() * 20) + 1) {
-                                case 1:
-                                    items.push(new Item("ראייה מרחוק", 0));
-                                    break;
-                                case 2:
-                                    items.push(new Item("שמיעה מרחוק", 0));
-                                    break;
-                                case 3:
-                                    items.push(new Item("כיווץ", 0));
-                                    break;
-                                case 4:
-                                    items.push(new Item("צורת אתר", 0));
-                                    break;
-                                case 5:
-                                case 6:
-                                    items.push(new Item("חסינות לאש", 0));
-                                    break;
-                                case 7:
-                                    items.push(new Item("צורת גז", 0));
-                                    break;
-                                case 8:
-                                case 9:
-                                    items.push(new Item("גדילה", 0));
-                                    break;
-                                case 10:
-                                    items.push(new Item("גבורה", 0));
-                                    break;
-                                case 11:
-                                case 12:
-                                    items.push(new Item("היעלמות מעין", 0));
-                                    break;
-                                case 13:
-                                case 14:
-                                    items.push(new Item("ריחוף", 0));
-                                    break;
-                                case 15:
-                                    items.push(new Item("רעל", 0));
-                                    break;
-                                default:
-                                    items.push(new Item("ריפוי", 0));
-                            }
-                            break;
-                        case 2:
-                            console.log("Rolling for potion");
-                            switch (Math.floor(Math.random() * 20) + 1) {
-                                case 1:
-                                    items.push(new Item("לחש אחד, עוצמה ראשונה", 0));
-                                    break;
-                                case 2:
-                                    items.push(new Item("לחש אחד, עוצמה 1ק2", 0));
-                                    break;
-                                case 3:
-                                    items.push(new Item("שני לחשים, עוצמה 1", 0));
-                                    break;
-                                case 4:
-                                    items.push(new Item("שני לחשים, עוצמה 1ק2", 0));
-                                    break;
-                                case 5:
-                                case 6:
-                                    items.push(new Item("מגילה מקוללת. יש לגלג בטבלת מגילות מקוללות", 0));
-                                    break;
-                                case 7:
-                                    items.push(new Item("מגילת הגנה. יש לגלגל בטבלת מגילות הגנה", 0));
-                                    break;
-                                case 8:
-                                    items.push(new Item("לחש אחד, עוצמה שלישית", 0));
-                                    break;
-                                case 9:
-                                    items.push(new Item("מגילת הגנה, יש לגלגל בטבלת מגילות ההגנה", 0));
-                                    break;
-                                case 10:
-                                    items.push(new Item("שני לחשים, עוצמה 1ק3", 0));
-                                    break;
-                                case 11:
-                                    items.push(new Item("מגילה מקוללת. יש לגלגל בטבלת מגילות מקוללות", 0));
-                                    break;
-                                case 12:
-                                    items.push(new Item("מגילת הגנה. זמן הגנה כפולה", 0));
-                                    break;
-                                case 13:
-                                    items.push(new Item("שני לחשים, עוצמה 1ק2", 0));
-                                    break;
-                                case 14:
-                                    items.push(new Item("ארבעה לחשים, עוצמה 1", 0));
-                                    break;
-                                case 15:
-                                    items.push(new Item("שני לחשים, עוצמה 1ק3", 0));
-                                    break;
-                                case 16:
-                                    items.push(new Item("מגילת הגנה, יש לגלגל בטבלת מגילות ההגנה", 0));
-                                    break;
-                                case 17:
-                                    items.push(new Item("מגילה מקוללת. יש לגלגל בטבלת מגילות מקוללות", 0));
-                                    break;
-                                case 18:
-                                    items.push(new Item("שלושה לחצים, עוצמה 1ק2", 0));
-                                    break;
-                                case 19:
-                                    items.push(new Item("ארבעה לחשים, עוצמה 1ק2", 0));
-                                    break;
-                                case 20:
-                                    items.push(new Item("שלושה לחשים, עוצמה 1ק3", 0));
-                                    break;
-                            }
-                            break;
-                        case 3:
-                            console.log("Rolling for magical weapon");
-                            diceRoll = Math.floor(Math.random() * 20) + 1;
-                            if (diceRoll >= 1 && diceRoll <= 10) {
-                                items.push(new Item("חרב +1", 0));
-                            } else if (diceRoll === 11) {
-                                items.push(new Item("חרב פלוס 1. פלוס 2 כנגד על מתים", 0));
-                            } else if (diceRoll === 12) {
-                                items.push(new Item("חרב פלוס 1. פלוס 2 כנגד חיות אדם", 0));
-                            } else if (diceRoll === 13 || diceRoll === 14) {
-                                items.push(new Item("חרב פלוס 1. פלוס 2 כנגד אורקים", 0));
-                            } else if (diceRoll === 15) {
-                                items.push(new Item("חרב פלוס 1. מטילה ריפוי פצעים קלים פעם ביום", 0));
-                            } else if (diceRoll >= 16 && diceRoll <= 20) {
-                                items.push(new Item("חרב פלוס 2", 0));
-                            }
-                            else if (diceRoll >= 21 && diceRoll <= 22) {
-                                items.push(new Item("חרב פלוס 2, פלוס 3 כנגד אל מתים", 0));
-                            }
-                            else if (diceRoll >= 23 && diceRoll <= 24) {
-                                items.push(new Item("חרב פלוס 2, פלוס 3 כנגד מטילי לחשים", 0));
-                            }
-                            else if (diceRoll == 25) {
-                                items.push(new Item("חרב פלוס 2, מטילה ריפוי פצעים קלים פעמיים ביום", 0));
-                            }
-                            else if (diceRoll >= 26 && diceRoll <= 35) {
-                                items.push(new Item('נשק קפא"פ פלוס 1', 0));
-                            }
-                            else if (diceRoll >= 36 && diceRoll <= 40) {
-                                items.push(new Item('נשק קפא"פ פלוס 2', 0));
-                            }
-                            else if (diceRoll >= 41 && diceRoll <= 44) {
-                                items.push(new Item("חיצים פלוס 1 - עשרה", 0));
-                            }
-                            else if (diceRoll >= 45 && diceRoll <= 46) {
-                                items.push(new Item("קליע קל פלוס 1 - עשרה", 0));
-                            }
-                            else if (diceRoll >= 47 && diceRoll <= 50) {
-                                items.push(new Item("קליע כבד פלוס 1 - עשרה", 0));
-                            }
-                            else if (diceRoll >= 51 && diceRoll <= 60) {
-                                items.push(new Item("מגן פלוס 1", 0));
-                            }
-                            else if (diceRoll >= 61 && diceRoll <= 65) {
-                                items.push(new Item("מגן פלוס 2", 0));
-                            }
-                            else if (diceRoll >= 66 && diceRoll <= 78) {
-                                items.push(new Item("שריון פלוס 1", 0));
-                            }
-                            else if (diceRoll >= 79 && diceRoll <= 85) {
-                                items.push(new Item("שריון פלוס 2", 0));
-                            }
-                            else if (diceRoll >= 86 && diceRoll <= 90) {
-                                items.push(new Item("חרב מקוללת מינוס 1", 0));
-                            }
-                            else if (diceRoll >= 91 && diceRoll <= 93) {
-                                items.push(new Item('נשק קפא"פ מקולל מינוס 1', 0));
-                            }
-                            else if (diceRoll >= 94 && diceRoll <= 95) {
-                                items.push(new Item("חיצים או קליעים מקוללים מינוס 1", 0));
-                            }
-                            else if (diceRoll >= 96 && diceRoll <= 100) {
-                                items.push(new Item("שריון מקולל מינוס 1", 0));
-                            }
-                            break;
-                        case 4:
-                            console.log("Scroll for magical item");
-                            switch (Math.floor(Math.random() * 20) + 1) {
-                                case 1:
-                                case 2:
-                                    items.push(new Item('טבעת הגנה פלוס 1', 0));
-                                    break;
-                                case 3:
-                                case 4:
-                                    items.push(new Item('טבעת הליכה על מים', 0));
-                                    break;
-                                case 5:
-                                case 6:
-                                    items.push(new Item('טבעת עמידות לאש', 0));
-                                    break;
-                                case 7:
-                                case 8:
-                                    items.push(new Item('טבעת חסינות לרעל', 0));
-                                    break;
-                                case 9:
-                                    items.push(new Item('שרביט גילוי קסם (ק)', 0));
-                                    break;
-                                case 10:
-                                    items.push(new Item('שרביט גילוי מלכודות ודלתות סתרים (ק)', 0));
-                                    break;
-                                case 11:
-                                    items.push(new Item('מטה ריפוי (כ)', 0));
-                                    break;
-                                case 12:
-                                    items.push(new Item('מטה פקודה (כ,ק)', 0));
-                                    break;
-                                case 13:
-                                    items.push(new Item('גלימת אלפים (כל)', 0));
-                                    break;
-                                case 14:
-                                case 15:
-                                    items.push(new Item('גלימת הגנה +1 (כל)', 0));
-                                    break;
-                                case 16:
-                                    items.push(new Item('חבל טיפוס (כל)', 0));
-                                    break;
-                                case 17:
-                                    items.push(new Item('חבל לכידה (כל)', 0));
-                                    break;
-                                case 18:
-                                    items.push(new Item('מגפי אלפים (כל)', 0));
-                                    break;
-                                case 19:
-                                    items.push(new Item('מגפי מהירות (כל)', 0));
-                                    break;
-                                case 20:
-                                    items.push(new Item('תיק רחב ידיים (כל)', 0));
-                                    break;
+function addItem(items: Array<Item>, name: string, value: number = 0): Array<Item> {
+    console.log(`Adding item: ${name} with value: ${value}`);
+    items.push(new Item(name, value));
+    return items;
 
-                            }
-                            break;
+}
 
-                    }
+export function calculateItems(experience: number): Array<Item> {    
+    let gold = experience * (rollDice(3) + 1);
+    console.log("Initial gold: " + gold);
+    let items: Array<Item> = [];
+    const jewleryProbability = Math.floor(gold / 100);
+    for (let i = 0; i < jewleryProbability; i++) {
+        if (rollDice(10) === 10) {
+            console.log("Replacing 100 gold with an item");
+            gold -= 100;
+            console.log("Rolling for simple gem or simple magical item");
+            if (rollDice(20) < 20) {
+                console.log("Rolling for simple gem");
+                let goldValue = 0;
+                switch (rollDice(4)) {
+                    case 1:
+                        goldValue = rollDice(6);
+                        items = addItem(items,"אבן חן פשוטה", goldValue);                        
+                        break;
+                    case 2:
+                        goldValue = rollDice(100) + 25;
+                        items = addItem(items,"אבן חן פשוטה", goldValue);
+                        break;
+                    case 3:
+                        goldValue = rollDice(100) + 75;
+                        items = addItem(items,"אבן חן פשוטה", goldValue);
+                        break;
+                    case 4:
+                        goldValue = rollDice(100) * 10;
+                        items = addItem(items,"אבן חן פשוטה", goldValue);
+                        break;
                 }
-                items.push(new Item("זהב", gold));
 
+            } else {
+                console.log("Rolling for simple magical item");
+                switch (rollDice(4)) {
+                    case 1:
+                        console.log("Rolling for potion");
+                        switch (rollDice(20)) {
+                            case 1:
+                                items = addItem(items,"שיקוי ראייה מרחוק");
+                                break;
+                            case 2:
+                                items = addItem(items,"שיקוי שמיעה מרחוק");
+                                break;
+                            case 3:
+                                items = addItem(items, "שיקוי כיווץ");
+                                break;
+                            case 4:                                
+                                items = addItem(items, "שיקוי צורת אתר");
+                                break;
+                            case 5:
+                            case 6:                                
+                                items = addItem(items, "שיקוי חסינות לאש");
+                                break;
+                            case 7:
+                                items = addItem(items, "שיקוי צורת גז");
+                                break;
+                            case 8:
+                            case 9:                                
+                                items = addItem(items, "שיקוי גדילה");
+                                break;
+                            case 10:
+                                items = addItem(items, "שיקוי גבורה");
+                                break;
+                            case 11:
+                            case 12:
+                                items = addItem(items, "שיקוי היעלמות מעין")
+                                break;
+                            case 13:
+                            case 14:
+                                items = addItem(items, "שיקוי ריחוף");
+                                break;
+                            case 15:                                
+                                items = addItem(items, "שיקוי רעל");
+                                break;
+                            default:
+                                items = addItem(items, "שיקוי ריפוי");
+                               
+                        }
+                        break;
+                    case 2:
+                        console.log("Rolling for scroll");
+                        switch (rollDice(20)) {
+                            case 1:                                
+                                items = addItem(items, "מגילה לחש אחד, עוצמה ראשונה");
+                                break;
+                            case 2:
+                                items = addItem(items, "מגילה לחש אחד, עוצמה 1ק2");
+                                break;
+                            case 3:
+                                items = addItem(items, "מגילה שני לחשים, עוצמה 1");
+                                break;
+                            case 4:
+                                items = addItem(items, "מגילה שני לחשים, עוצמה 1ק2");
+                                break;
+                            case 5:
+                            case 6:
+                                items = addItem(items, "מגילה מקוללת. יש לגלג בטבלת מגילות מקוללות");
+                                break;
+                            case 7:
+                                items = addItem(items, "מגילת הגנה. יש לגלגל בטבלת מגילות הגנה");
+                                break;
+                            case 8:
+                                items = addItem(items, "מגילה לחש אחד, עוצמה שלישית");
+                                break;
+                            case 9:
+                                items = addItem(items, "מגילת הגנה, יש לגלגל בטבלת מגילות ההגנה");
+                                break;
+                            case 10:
+                                items = addItem(items, "מגילה שני לחשים, עוצמה 1ק3");
+                                break;
+                            case 11:
+                                items = addItem(items, "מגילה מקוללת. יש לגלגל בטבלת מגילות מקוללות");
+                                break;
+                            case 12:
+                                items = addItem(items, "מגילת הגנה. זמן הגנה כפולה");
+                                break;
+                            case 13:
+                                items = addItem(items, "מגילה שני לחשים, עוצמה 1ק2");
+                                break;
+                            case 14:
+                                items = addItem(items, "מגילה ארבעה לחשים, עוצמה 1");
+                                break;
+                            case 15:
+                                items = addItem(items, "מגילה שני לחשים, עוצמה 1ק3");
+                                break;
+                            case 16:
+                                items = addItem(items, "מגילת הגנה, יש לגלגל בטבלת מגילות ההגנה");
+                                break;
+                            case 17:
+                                items = addItem(items, "מגילה מקוללת. יש לגלגל בטבלת מגילות מקוללות");
+                                break;
+                            case 18:
+                                items = addItem(items, "מגילה שלושה לחשים, עוצמה 1ק2");
+                                break;
+                            case 19:
+                                items = addItem(items, "מגילה ארבעה לחשים, עוצמה 1ק2");
+                                break;
+                            case 20:
+                                items = addItem(items, "מגילה שלושה לחשים, עוצמה 1ק3");
+                                break;
+                        }
+                        break;
+                    case 3:
+                        console.log("Rolling for magical weapon");
+                        let diceRoll = rollDice(100);
+                        if (diceRoll >= 1 && diceRoll <= 10) {
+                            items = addItem(items, "חרב +1");
+                        } else if (diceRoll === 11) {
+                            items = addItem(items, "חרב פלוס 1. פלוס 2 כנגד על מתים");
+                        } else if (diceRoll === 12) {
+                            items = addItem(items, "חרב פלוס 1. פלוס 2 כנגד חיות אדם");
+                        } else if (diceRoll === 13 || diceRoll === 14) {
+                            items = addItem(items, "חרב פלוס 1. פלוס 2 כנגד אורקים");
+                        } else if (diceRoll === 15) {
+                            items = addItem(items, "חרב פלוס 1. מטילה ריפוי פצעים קלים פעם ביום");
+                        } else if (diceRoll >= 16 && diceRoll <= 20) {
+                            items = addItem(items, "חרב פלוס 2");
+                        }
+                        else if (diceRoll >= 21 && diceRoll <= 22) {
+                            items = addItem(items, "חרב פלוס 2, פלוס 3 כנגד אל מתים");
+                        }
+                        else if (diceRoll >= 23 && diceRoll <= 24) {
+                            items = addItem(items, "חרב פלוס 2, פלוס 3 כנגד מטילי לחשים");
+                        }
+                        else if (diceRoll == 25) {
+                            items = addItem(items, "חרב פלוס 2, מטילה ריפוי פצעים קלים פעמיים ביום");
+                        }
+                        else if (diceRoll >= 26 && diceRoll <= 35) {
+                            items = addItem(items, 'נשק קפא"פ פלוס 1');
+                        }
+                        else if (diceRoll >= 36 && diceRoll <= 40) {
+                            items = addItem(items, 'נשק קפא"פ פלוס 2');
+                        }
+                        else if (diceRoll >= 41 && diceRoll <= 44) {
+                            items = addItem(items, "חיצים פלוס 1 - עשרה");
+                        }
+                        else if (diceRoll >= 45 && diceRoll <= 46) {
+                            items = addItem(items, "קליע קל פלוס 1 - עשרה");
+                        }
+                        else if (diceRoll >= 47 && diceRoll <= 50) {
+                            items = addItem(items, "קליע כבד פלוס 1 - עשרה");
+                        }
+                        else if (diceRoll >= 51 && diceRoll <= 60) {
+                            items = addItem(items, "מגן פלוס 1");
+                        }
+                        else if (diceRoll >= 61 && diceRoll <= 65) {
+                            items = addItem(items, "מגן פלוס 2");
+                        }
+                        else if (diceRoll >= 66 && diceRoll <= 78) {
+                            items = addItem(items, "שריון פלוס 1");
+                        }
+                        else if (diceRoll >= 79 && diceRoll <= 85) {
+                            items = addItem(items, "שריון פלוס 2");
+                        }
+                        else if (diceRoll >= 86 && diceRoll <= 90) {
+                            items = addItem(items, "חרב מקוללת מינוס 1");
+                        }
+                        else if (diceRoll >= 91 && diceRoll <= 93) {
+                            items = addItem(items, 'נשק קפא"פ מקולל מינוס 1');
+                        }
+                        else if (diceRoll >= 94 && diceRoll <= 95) {
+                            items = addItem(items, "חיצים או קליעים מקוללים מינוס 1");
+                        }
+                        else if (diceRoll >= 96 && diceRoll <= 100) {
+                            items = addItem(items, "שריון מקולל מינוס 1");
+                        }
+                        break;
+                    case 4:
+                        console.log("Scroll for magical item");
+                        switch (rollDice(20)) {
+                            case 1:
+                            case 2:
+                                items = addItem(items, 'טבעת הגנה פלוס 1');
+                                break;
+                            case 3:
+                            case 4:
+                                items = addItem(items, 'טבעת הליכה על מים');
+                                break;
+                            case 5:
+                            case 6:
+                                items = addItem(items, 'טבעת עמידות לאש');
+                                break;
+                            case 7:
+                            case 8:
+                                items = addItem(items, 'טבעת חסינות לרעל');
+                                break;
+                            case 9:
+                                items = addItem(items, 'שרביט גילוי קסם (ק)');
+                                break;
+                            case 10:
+                                items = addItem(items, 'שרביט גילוי מלכודות ודלתות סתרים (ק)');
+                                break;
+                            case 11:
+                                items = addItem(items, 'מטה ריפוי (כ)');
+                                break;
+                            case 12:
+                                items = addItem(items, 'מטה פקודה (כ,ק)');
+                                break;
+                            case 13:
+                                items = addItem(items, 'גלימת אלפים (כל)');
+                                break;
+                            case 14:
+                            case 15:
+                                items = addItem(items, 'גלימת הגנה +1 (כל)');
+                                break;
+                            case 16:
+                                items = addItem(items, 'חבל טיפוס (כל)');
+                                break;
+                            case 17:
+                                items = addItem(items, 'חבל לכידה (כל)');
+                                break;
+                            case 18:
+                                items = addItem(items, 'מגפי אלפים (כל)');
+                                break;
+                            case 19:
+                                items = addItem(items, 'מגפי מהירות (כל)');
+                                break;
+                            case 20:
+                                items = addItem(items, 'תיק רחב ידיים (כל)');
+                                break;
+
+                        }
+                        break;
+
+                }
             }
-            console.log(items);
+
         }
-        return items;
+    }
+    items = addItem(items, "זהב", gold);    
+    console.log(items);
+    return items;
 
 
 }
