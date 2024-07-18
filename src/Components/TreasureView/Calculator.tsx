@@ -1,10 +1,4 @@
-class Item {
-    constructor(public name: string, public value: number) { }
-
-    public toString = (): string => {
-        return `Item (name: ${this.name}, value: ${this.value})`;
-    }
-}
+import { Item } from './Item';
 
 function rollDice(sides: number): number {
     const result =  Math.floor(Math.random() * sides) + 1;
@@ -24,6 +18,7 @@ export function calculateItems(experience: number): Array<Item> {
     console.log("Initial gold: " + gold);
     let items: Array<Item> = [];
     const jewleryProbability = Math.floor(gold / 100);
+    
     for (let i = 0; i < jewleryProbability; i++) {
         if (rollDice(10) === 10) {
             console.log("Replacing 100 gold with an item");
@@ -101,6 +96,7 @@ export function calculateItems(experience: number): Array<Item> {
                         break;
                     case 2:
                         console.log("Rolling for scroll");
+                        let diceRoll = 0;
                         switch (rollDice(20)) {
                             case 1:                                
                                 items = addItem(items, "מגילה לחש אחד, עוצמה ראשונה");
@@ -137,13 +133,15 @@ export function calculateItems(experience: number): Array<Item> {
                                 items = addItem(items, "מגילת הגנה. זמן הגנה כפולה");
                                 break;
                             case 13:
-                                items = addItem(items, "מגילה שני לחשים, עוצמה 1ק2");
+                                diceRoll = rollDice(2);
+                                items = addItem(items, `${diceRoll} מגילה שני לחשים, עוצמה  `);
                                 break;
                             case 14:
                                 items = addItem(items, "מגילה ארבעה לחשים, עוצמה 1");
                                 break;
                             case 15:
-                                items = addItem(items, "מגילה שני לחשים, עוצמה 1ק3");
+                                diceRoll = rollDice(3);
+                                items = addItem(items, `${diceRoll} מגילה שני לחשים, עוצמה `);
                                 break;
                             case 16:
                                 items = addItem(items, "מגילת הגנה, יש לגלגל בטבלת מגילות ההגנה");
@@ -164,7 +162,7 @@ export function calculateItems(experience: number): Array<Item> {
                         break;
                     case 3:
                         console.log("Rolling for magical weapon");
-                        let diceRoll = rollDice(100);
+                        diceRoll = rollDice(100);
                         if (diceRoll >= 1 && diceRoll <= 10) {
                             items = addItem(items, "חרב +1");
                         } else if (diceRoll === 11) {

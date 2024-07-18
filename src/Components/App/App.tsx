@@ -4,7 +4,7 @@ import MonstersView from '../MonstersView/MonstersView';
 import MonsterView from '../MonsterView/MonsterView';
 import TabbedMonstersView from '../MonstersView/TabbedMonstersView';
 import ButtonAppBar from '../ButtonAppBar/ButtonAppBar';
-import TreasureCalc from '../TreasureCalc/TreasureCalc';
+import TreasureView from '../TreasureView/TreasureView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
@@ -17,7 +17,7 @@ class App extends React.Component {
                     <Routes>
                         <Route path="/" element={<TabbedMonstersView />} />
                         <Route path="/monster" element={<MonsterView />} />
-                        <Route path="/treasure" element={<TreasureCalc />} />
+                        <Route path="/treasure" element={<TreasureView />} />
                     </Routes>
                 </div>
             </Router>
