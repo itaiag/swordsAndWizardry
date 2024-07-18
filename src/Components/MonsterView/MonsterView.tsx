@@ -4,8 +4,9 @@ import { monsters } from '../../Data/Monsters';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
+import './MonsterView.css';
 
-const ViewMonster: React.FC = () => {
+const MonsterView: React.FC = () => {
     
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -18,10 +19,10 @@ const ViewMonster: React.FC = () => {
   }
 
   return (
-    <div style={{ marginRight: '20px' }}>
+    <div className='data-view' >
       <h1>{monster.שם}</h1>
       <Divider />
-      <p>קושי דירוג: {monster['דירוג קושי']}</p>
+      <p>דירוג קושי: {monster['דירוג קושי']}</p>
       <p>קב"פ: {monster['קב"פ']}</p>
       <p>התקפות: {monster['התקפות']}</p>
       <p>גלגול הצלה: {monster['גלגול הצלה']}</p>
@@ -36,4 +37,4 @@ const ViewMonster: React.FC = () => {
   );
 };
 
-export default ViewMonster;
+export default MonsterView;

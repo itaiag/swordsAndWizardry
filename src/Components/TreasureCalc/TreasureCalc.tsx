@@ -27,9 +27,13 @@ export default function BasicTextFields() {
         >
             <TextField 
                 id="standard-basic" 
-                label="נקודות נסיון" 
+                label="נקודות נסיון"                 
                 variant="standard"
-                value={textFieldValue} 
+                value={textFieldValue}
+                placeholder='הכנס נקודות נסיון'
+                InputLabelProps={{
+                    style: { direction: 'rtl'},
+                  }}
                 onChange={handleTextFieldChange}/>
             <br/>
             <Button variant="contained" onClick={handleClick}>חשב</Button>

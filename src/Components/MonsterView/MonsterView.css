@@ -1,0 +1,14 @@
+.data-view {
+    margin-right: 20px;
+    width: '100%'; /* Full width on mobile */
+    font-size: large;
+    
+  }
+  
+  /* For desktop */
+  @media (min-width: 1200px) { /* Adjust breakpoint as needed */
+    .data-view {        
+        max-width: 2000px; /* Adjust max-width as needed for larger screens */
+        margin: 0 auto; /* Center the DataGrid */    
+    }
+  }
