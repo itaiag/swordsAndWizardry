@@ -1,5 +1,7 @@
 import { Item } from './Item';
 
+let index = 0;
+
 function rollDice(sides: number): number {
     const result =  Math.floor(Math.random() * sides) + 1;
     console.log(`Rolling a ${sides} sided dice. Result: ${result}`);
@@ -8,21 +10,24 @@ function rollDice(sides: number): number {
 
 function addItem(items: Array<Item>, name: string, value: number = 0): Array<Item> {
     console.log(`Adding item: ${name} with value: ${value}`);
-    items.push(new Item(name, value));
+    items.push(new Item(index++, name, value));
     return items;
 
 }
 
 export function calculateItems(experience: number): Array<Item> {    
+    index = 0;
     let gold = experience * (rollDice(3) + 1);
     console.log("Initial gold: " + gold);
     let items: Array<Item> = [];
     const jewleryProbability = Math.floor(gold / 100);
+    console.log(`Will roll: ${jewleryProbability} for items`);
     
     for (let i = 0; i < jewleryProbability; i++) {
         if (rollDice(10) === 10) {
-            console.log("Replacing 100 gold with an item");
+            console.log("Great, Replacing 100 gold with an item");
             gold -= 100;
+            console.log("Decreasing gold: " + gold);
             console.log("Rolling for simple gem or simple magical item");
             if (rollDice(20) < 20) {
                 console.log("Rolling for simple gem");
@@ -48,6 +53,7 @@ export function calculateItems(experience: number): Array<Item> {
 
             } else {
                 console.log("Rolling for simple magical item");
+                let diceRoll = 0;
                 switch (rollDice(4)) {
                     case 1:
                         console.log("Rolling for potion");
@@ -96,7 +102,7 @@ export function calculateItems(experience: number): Array<Item> {
                         break;
                     case 2:
                         console.log("Rolling for scroll");
-                        let diceRoll = 0;
+                        
                         switch (rollDice(20)) {
                             case 1:                                
                                 items = addItem(items, "מגילה לחש אחד, עוצמה ראשונה");
@@ -182,7 +188,7 @@ export function calculateItems(experience: number): Array<Item> {
                         else if (diceRoll >= 23 && diceRoll <= 24) {
                             items = addItem(items, "חרב פלוס 2, פלוס 3 כנגד מטילי לחשים");
                         }
-                        else if (diceRoll == 25) {
+                        else if (diceRoll === 25) {
                             items = addItem(items, "חרב פלוס 2, מטילה ריפוי פצעים קלים פעמיים ביום");
                         }
                         else if (diceRoll >= 26 && diceRoll <= 35) {

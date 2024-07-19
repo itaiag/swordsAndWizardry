@@ -21,16 +21,15 @@ export default function TreasureTable({ items }: { items: Item[] }) {
         <TableBody>
           {items.map((item) => (
             <TableRow
-              key={item.name}
+              key={item.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row" align='right'>
                 {item.name}
               </TableCell>
               <TableCell component="th" scope="row">
-              {item.value !== 0 && item.value}
+                {item.value !== 0 && item.value}
               </TableCell>
-
             </TableRow>
           ))}
         </TableBody>
