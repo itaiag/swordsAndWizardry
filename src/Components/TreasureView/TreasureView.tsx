@@ -5,6 +5,7 @@ import { Button } from '@mui/material';
 import TreasureTable from './TreasureTable';
 import { calculateItems } from './Calculator'
 import { Item } from './Item'
+import './TreasureView.css';
 
 export default function TreasureView() {
     const [textFieldValue, setTextFieldValue] = useState('');
@@ -27,6 +28,7 @@ export default function TreasureView() {
 
     return (
         <Box
+            className='treasure-view'
             component="form"
             sx={{
                 '& > :not(style)': { m: 1, width: '35ch' },
