@@ -14,6 +14,7 @@ class App extends React.Component {
                     <MainAppBar />                    
                     <Routes>
                         <Route path="/" element={<HomeView />} />
+                        <Route path="/swordsAndWizardry" element={<HomeView />} />
                         <Route path="/monsters" element={<TabbedMonstersView />} />
                         <Route path="/monster" element={<MonsterView/>} />
                         <Route path="/treasure" element={<TreasureView />} />
