@@ -1,6 +1,6 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
-import {monsters} from '../../Data/Monsters'
+import {monsters} from '../../data/Monsters'
 import './MonsterGrid.css';
 
 

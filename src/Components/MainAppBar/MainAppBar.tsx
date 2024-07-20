@@ -19,6 +19,7 @@ import TabbedMonstersView from '../MonstersView/TabbedMonstersView';
 import TreasureView from '../TreasureView/TreasureView';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomeView from '../HomeView/HomeView';
 
 interface Props {
     /**
@@ -126,10 +127,8 @@ export default function DrawerAppBar(props: Props) {
                     {drawer}
                 </Drawer>
             </nav>
-            <Box component="main" sx={{ p: 3 }}>
+            <Box component="main" sx={{ p: 0 }}>
                 <Toolbar />
-                {/* <Typography>
-                </Typography> */}
             </Box>
         </Box>
     );

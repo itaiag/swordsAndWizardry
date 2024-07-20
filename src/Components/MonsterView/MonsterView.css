@@ -4,11 +4,24 @@
     font-size: large;
     
   }
+.button-spacing {
+    margin-left: 40px;
+  }
   
   /* For desktop */
   @media (min-width: 1200px) { /* Adjust breakpoint as needed */
     .data-view {        
-        max-width: 2000px; /* Adjust max-width as needed for larger screens */
+        
         margin: 0 auto; /* Center the DataGrid */    
+        font-size: large;
+        height: 100%;
+        margin: 0;
+        display: block;
+        justify-content: center;
+        align-items: center;
+
+        /* Optional: Set a max-width for .treasure-view and margin auto for horizontal centering */
+        max-width: 30%; /* Adjust based on your design */
+        margin: auto;
     }
   }
