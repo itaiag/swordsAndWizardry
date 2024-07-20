@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.responsiveImage {
+  width: 100%; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the container, you can use 'contain' if you don't want to crop the image */
+}
+
+@media (max-width: 768px) { /* Adjust this value based on your needs */
+  .responsiveImage {
+    /* Adjustments for mobile view */
+    width: 100%; /* Example adjustment */
+    height: auto; /* Adjust if necessary */
+  }
+}

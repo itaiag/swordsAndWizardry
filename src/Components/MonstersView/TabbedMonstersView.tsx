@@ -3,7 +3,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import MonsterGrid from '../MonstersGrid/MonstersGrid';
-import MonstersView from './MonstersView';
 import { Divider } from '@mui/material';
 
 interface TabPanelProps {

@@ -1,22 +1,21 @@
 import * as React from 'react';
-import Menu from '../Menu/Menu';
-import MonstersView from '../MonstersView/MonstersView';
-import MonsterView from '../MonsterView/MonsterView';
 import TabbedMonstersView from '../MonstersView/TabbedMonstersView';
-import ButtonAppBar from '../ButtonAppBar/ButtonAppBar';
 import TreasureView from '../TreasureView/TreasureView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import MainAppBar from '../MainAppBar/MainAppBar';
+import HomeView from '../HomeView/HomeView';
+import MonsterView from '../MonsterView/MonsterView';
 
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <div>
-                    <ButtonAppBar />
+                    <MainAppBar />                    
                     <Routes>
-                        <Route path="/" element={<TabbedMonstersView />} />
-                        <Route path="/monster" element={<MonsterView />} />
+                        <Route path="/" element={<HomeView />} />
+                        <Route path="/monsters" element={<TabbedMonstersView />} />
+                        <Route path="/monster" element={<MonsterView/>} />
                         <Route path="/treasure" element={<TreasureView />} />
                     </Routes>
                 </div>
