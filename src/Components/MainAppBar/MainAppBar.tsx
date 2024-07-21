@@ -13,13 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import TabbedMonstersView from '../MonstersView/TabbedMonstersView';
-import TreasureView from '../TreasureView/TreasureView';
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomeView from '../HomeView/HomeView';
 
 interface Props {
     /**
@@ -55,8 +49,7 @@ export default function DrawerAppBar(props: Props) {
                 break;
             default:
                 break;
-        }
-        // navigate(path);
+        }        
     };
 
 

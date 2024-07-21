@@ -5,9 +5,9 @@ import { Button } from '@mui/material';
 import TreasureTable from './TreasureTable';
 import { calculateItems } from './Calculator'
 import { Item } from './Item'
-import './TreasureView.css';
+import './TreasureCalcView.css';
 
-export default function TreasureView() {
+export default function TreasureCalcView() {
     const [textFieldValue, setTextFieldValue] = useState('');
     const [items, setItems] = useState<null | Item[]>();
 

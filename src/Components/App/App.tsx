@@ -1,10 +1,10 @@
 import * as React from 'react';
 import TabbedMonstersView from '../MonstersView/TabbedMonstersView';
-import TreasureView from '../TreasureView/TreasureView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainAppBar from '../MainAppBar/MainAppBar';
 import HomeView from '../HomeView/HomeView';
 import MonsterView from '../MonsterView/MonsterView';
+import TabbedTreasureView from '../TreasureView/TabbedTreasureView';
 
 class App extends React.Component {
     render() {
@@ -17,7 +17,7 @@ class App extends React.Component {
                         <Route path="/swordsAndWizardry" element={<HomeView />} />
                         <Route path="/monsters" element={<TabbedMonstersView />} />
                         <Route path="/monster" element={<MonsterView/>} />
-                        <Route path="/treasure" element={<TreasureView />} />
+                        <Route path="/treasure" element={<TabbedTreasureView />} />
                     </Routes>
                 </div>
             </Router>
