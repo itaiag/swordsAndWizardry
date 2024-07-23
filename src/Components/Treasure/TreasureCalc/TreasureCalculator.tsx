@@ -6,18 +6,11 @@ import { magicalItems } from '../../../data/magicalItems';
 import rollDice from '../../../utils/DiceRoller'
 let index = 0;
 
-function addItemByName(items: Array<Item>, name: string, value: number = 0): Array<Item> {
-    console.log(`Adding item: ${name} with value: ${value}`);
-    items.push(new Item(index++, name, value));
-    return items;
-}
-
 function addItem(items: Array<Item>, item: Item): Array<Item> {
     console.log(`Adding item: ${item.name} `);
     items.push(item);
     return items;
 }
-
 
 function findItemByProbability(probability: number, itemByProbability: Array<any>): Item {
     console.log(`Finding item for probability ${probability}`);
@@ -57,36 +50,30 @@ export function calculateItems(experience: number): Array<Item> {
             console.log("Decreasing gold: " + gold);
             console.log("Rolling for simple gem or simple magical item");
             if (rollDice(20) < 20) {
-                console.log("Rolling for simple gem");
-                let goldValue = 0;
+                console.log("Rolling for simple gem");                
+                let item: Item = new Item(index++, "אבן חן פשוטה", 0);
                 switch (rollDice(4)) {
                     case 1:
-                        goldValue = rollDice(6);
-                        items = addItemByName(items, "אבן חן פשוטה", goldValue);
+                        item.value = rollDice(6);                        
                         break;
                     case 2:
-                        goldValue = rollDice(100) + 25;
-                        items = addItemByName(items, "אבן חן פשוטה", goldValue);
+                        item.value = rollDice(100) + 25;
                         break;
                     case 3:
-                        goldValue = rollDice(100) + 75;
-                        items = addItemByName(items, "אבן חן פשוטה", goldValue);
+                        item.value = rollDice(100) + 75;
                         break;
                     case 4:
-                        goldValue = rollDice(100) * 10;
-                        items = addItemByName(items, "אבן חן פשוטה", goldValue);
+                        item.value = rollDice(100) * 10;
                         break;
                 }
-
+                items = addItem(items, item);
             } else {
                 console.log("Rolling for simple magical item");
-                let diceRoll = 0;
-                let item: Item = new Item(index++, "לא נמצא", 0);
+                let item: Item | null = null;
                 switch (rollDice(4)) {
                     case 1:
                         console.log("Rolling for potion");
                         item = findItemByProbability(rollDice(20), potions.filter(potion => potion['סוג'] === 'רגיל'));
-                        items = addItem(items, item);
                         break;
                     case 2:
                         console.log("Rolling for scroll");
@@ -95,7 +82,7 @@ export function calculateItems(experience: number): Array<Item> {
                             switch (item.tablePointer) {
                                 case "הגנה":
                                     console.log("Rolling for protection scroll");
-                                    item = findItemByProbability(rollDice(6), scrolls.filter(scroll => scroll['סוג'] === 'הגנה'));                                    
+                                    item = findItemByProbability(rollDice(6), scrolls.filter(scroll => scroll['סוג'] === 'הגנה'));
                                 break;
                                 case "מקוללת":
                                     console.log("Rolling for cursed scroll");
@@ -103,28 +90,23 @@ export function calculateItems(experience: number): Array<Item> {
                                 break;
                             }
                         }
-                        items = addItem(items, item);                    
                         break;
                     case 3:
-                        console.log("Rolling simple for magical weapon");
-                        diceRoll = rollDice(100);
-                        item = findItemByProbability(diceRoll, magicalWeapons);
-                        items = addItem(items, item);
+                        console.log("Rolling simple for magical weapon");                        
+                        item = findItemByProbability(rollDice(100), magicalWeapons);
                         break;
                     case 4:
                         console.log("Roll for magical item");
-                        diceRoll = rollDice(20);
-                        item = findItemByProbability(diceRoll, magicalItems.filter(item => item['סוג'] === 'פשוט'));
-                        items = addItem(items, item);
+                        item = findItemByProbability(rollDice(20), magicalItems.filter(item => item['סוג'] === 'פשוט'));                        
                         break;
                 }
+                if (item !== null) {
+                    items = addItem(items, item);
+                }
             }
-
         }
-    }
-    items = addItemByName(items, "זהב", gold);
+    }    
+    items = addItem(items, new Item(index++, "זהב", gold));
     console.log(items);
     return items;
-
-
 }
