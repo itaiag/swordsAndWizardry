@@ -1,9 +1,9 @@
-import { Item } from './Item';
-import { potions } from '../../data/potions';
-import { scrolls } from '../../data/scrolls';
-import { magicalWeapons } from '../../data/magicalWeapons';
-import { magicalItems } from '../../data/magicalItems';
-import rollDice from '../../utils/DiceRoller'
+import { Item } from '../Item';
+import { potions } from '../../../data/potions';
+import { scrolls } from '../../../data/scrolls';
+import { magicalWeapons } from '../../../data/magicalWeapons';
+import { magicalItems } from '../../../data/magicalItems';
+import rollDice from '../../../utils/DiceRoller'
 let index = 0;
 
 function addItem(items: Array<Item>, name: string, value: number = 0): Array<Item> {

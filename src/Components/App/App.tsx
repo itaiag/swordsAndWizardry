@@ -1,10 +1,10 @@
 import * as React from 'react';
-import TabbedMonstersView from '../MonstersView/TabbedMonstersView';
+import TabbedMonstersView from '../Monsters/TabbedMonstersView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MainAppBar from '../MainAppBar/MainAppBar';
+import MainAppBar from './MainAppBar';
 import HomeView from '../HomeView/HomeView';
-import MonsterView from '../MonsterView/MonsterView';
-import TabbedTreasureView from '../TreasureView/TabbedTreasureView';
+import MonsterView from '../Monsters/MonsterView/MonsterView';
+import TabbedTreasureView from '../Treasure/TabbedTreasureView';
 
 class App extends React.Component {
     render() {

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
-import { monsters } from '../../data/Monsters';
+import { monsters } from '../../../data/Monsters';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
 import './MonsterView.css';
-import rollDice from '../../utils/DiceRoller';
+import rollDice from '../../../utils/DiceRoller';
 import { useState, useEffect } from 'react';
 
 const MonsterView: React.FC = () => {

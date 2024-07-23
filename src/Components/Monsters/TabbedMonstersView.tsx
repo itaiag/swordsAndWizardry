@@ -2,8 +2,8 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import TreasureCalcView from './TreasureCalcView';
-import TreasureListView from './TreasureListView';
+import MonsterGrid from './MonstersGrid/MonstersGrid';
+import { Divider } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -46,17 +46,25 @@ export default function TabbedMonstersView() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="מחשבון" {...a11yProps(0)} />
-          <Tab label="אוצרות" {...a11yProps(1)} />          
+          <Tab label="מתחיל" {...a11yProps(0)} />
+          <Tab label="מתקדם" {...a11yProps(1)} />
+          <Tab label="נוספות" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-      <h2>מחשבון אוצר</h2>        
-        <TreasureCalcView/>
+      <h2>מפלצות למנחה המתחילה</h2>
+        <Divider />
+        <MonsterGrid type='מתחיל' />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <h2>רשימת אוצרות</h2>        
-        <TreasureListView/>
+        <h2>מפלצות למנחה המתקדמת</h2>
+        <Divider />
+        <MonsterGrid  type='מתקדם'/>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+      <h2>מפלצות נוספות</h2>
+        <Divider />
+        <MonsterGrid  type='נוספות'/>
       </CustomTabPanel>
     </Box>
   );

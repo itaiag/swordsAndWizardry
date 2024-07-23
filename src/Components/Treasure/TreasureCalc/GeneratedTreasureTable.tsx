@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Item } from './Item'
+import { Item } from '../Item'
 
 export default function TreasureTable({ items }: { items: Item[] }) {
   return (

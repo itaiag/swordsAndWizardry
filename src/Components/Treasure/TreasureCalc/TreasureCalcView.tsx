@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
-import TreasureTable from './TreasureTable';
+import TreasureTable from './GeneratedTreasureTable';
 import { calculateItems } from './TreasureCalculator'
-import { Item } from './Item'
-import './TreasureCalcView.css';
+import { Item } from '../Item'
+import '../Treasure.css';
 
 export default function TreasureCalcView() {
     const [textFieldValue, setTextFieldValue] = useState('');

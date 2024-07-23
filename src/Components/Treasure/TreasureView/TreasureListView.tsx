@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Button, MenuItem, FormControl, InputLabel } from '@mui/material';
-import './TreasureCalcView.css';
+import '../Treasure.css';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Item } from './Item';
+import { Item } from '../Item';
 import TreasureTable from './TreasureTable';
-import { potions } from '../../data/potions';
-import { scrolls } from '../../data/scrolls';
-import { magicalWeapons } from '../../data/magicalWeapons';
-import { magicalItems } from '../../data/magicalItems';
+import { potions } from '../../../data/potions';
+import { scrolls } from '../../../data/scrolls';
+import { magicalWeapons } from '../../../data/magicalWeapons';
+import { magicalItems } from '../../../data/magicalItems';
 
 export default function TreasureListView() {
 
@@ -24,11 +24,11 @@ export default function TreasureListView() {
         switch (treasure) {
             case "10":
                 console.log('showing potions');    
-                items = potions.map(potion =>  {return new Item(index++, potion.שם, 0)});                
+                items = potions.map(potion =>  {return new Item(index++, potion.שם, 0, potion.סוג)});                
                 break;
             case "20":
                 console.log('showing scrolls');
-                items = scrolls.map(scroll =>  {return new Item(index++, scroll.שם, 0)});
+                items = scrolls.map(scroll =>  {return new Item(index++, scroll.שם, 0, scroll.סוג)});
                 break;
             case "30":
                 console.log('showing magical weapons');
@@ -36,7 +36,7 @@ export default function TreasureListView() {
                 break;
             case "40":
                 console.log('showing magical items');
-                items = magicalItems.map(item =>  {return new Item(index++, item.שם, 0)});
+                items = magicalItems.map(item =>  {return new Item(index++, item.שם, 0, item.סוג)});
                 break;
 
         }
