@@ -18,7 +18,7 @@ export default function TreasureTable({ items }: { items: Item[] }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((item) => (
+          {items.filter(item => item.tablePointer === "").map((item) => (
             <TableRow
               key={item.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

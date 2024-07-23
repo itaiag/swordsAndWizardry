@@ -28,7 +28,7 @@ export default function TreasureListView() {
                 break;
             case "20":
                 console.log('showing scrolls');
-                items = scrolls.map(scroll =>  {return new Item(index++, scroll.שם, 0, scroll.סוג)});
+                items = scrolls.map(scroll =>  {return new Item(index++, scroll.שם, 0, scroll.סוג, scroll['מצביע לטבלה'])});
                 break;
             case "30":
                 console.log('showing magical weapons');
