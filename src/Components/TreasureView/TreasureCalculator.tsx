@@ -3,13 +3,8 @@ import { potions } from '../../data/potions';
 import { scrolls } from '../../data/scrolls';
 import { magicalWeapons } from '../../data/magicalWeapons';
 import { magicalItems } from '../../data/magicalItems';
+import rollDice from '../../utils/DiceRoller'
 let index = 0;
-
-function rollDice(sides: number): number {
-    const result = Math.floor(Math.random() * sides) + 1;
-    console.log(`Rolling a ${sides} sided dice. Result: ${result}`);
-    return result;
-}
 
 function addItem(items: Array<Item>, name: string, value: number = 0): Array<Item> {
     console.log(`Adding item: ${name} with value: ${value}`);
@@ -99,7 +94,6 @@ export function calculateItems(experience: number): Array<Item> {
                         itemName = findItemByProbability(diceRoll, magicalItems.filter(item => item['סוג'] === 'פשוט'));
                         items = addItem(items, itemName);                       
                         break;
-
                 }
             }
 

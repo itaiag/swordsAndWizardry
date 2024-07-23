@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
 import './MonsterView.css';
 import rollDice from '../../utils/DiceRoller';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const MonsterView: React.FC = () => {
     
@@ -15,7 +15,11 @@ const MonsterView: React.FC = () => {
   const monsterName = params.get('name');
   const monster = monsters.find(monster => monster["שם"] === monsterName);
   const navigate = useNavigate();
-  const [hitDice, setHitDice] = useState(rollHitDice()); 
+  const [hitDice, setHitDice] = useState(0); 
+
+  useEffect(() => {    
+    setHitDice(rollHitDice()); // Step 5: Update hitDice state
+  }, [])
   
   
   if (!monster) {
@@ -34,6 +38,8 @@ const MonsterView: React.FC = () => {
     console.log(`Dice type: ${diceType}, numDice: ${numDice}, modifier: ${modifier}: Dice Result ${diceResult}, Total: ${total}`);
     return total;
   }
+
+  
 
   return (
     <div className='data-view' >
