@@ -56,7 +56,7 @@ export function calculateItems(experience: number): Array<Item> {
             gold -= 100;
             console.log("Decreasing gold: " + gold);
             console.log("Rolling for simple gem or simple magical item");
-            if (rollDice(20) < 1) {
+            if (rollDice(20) < 20) {
                 console.log("Rolling for simple gem");
                 let goldValue = 0;
                 switch (rollDice(4)) {
