@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/swordsAndWizardry/static/css/main.87e35a0d.css",
-    "main.js": "/swordsAndWizardry/static/js/main.2153026a.js",
+    "main.js": "/swordsAndWizardry/static/js/main.a4f89e0a.js",
     "static/js/453.5c2d7ebc.chunk.js": "/swordsAndWizardry/static/js/453.5c2d7ebc.chunk.js",
     "index.html": "/swordsAndWizardry/index.html",
     "main.87e35a0d.css.map": "/swordsAndWizardry/static/css/main.87e35a0d.css.map",
-    "main.2153026a.js.map": "/swordsAndWizardry/static/js/main.2153026a.js.map",
+    "main.a4f89e0a.js.map": "/swordsAndWizardry/static/js/main.a4f89e0a.js.map",
     "453.5c2d7ebc.chunk.js.map": "/swordsAndWizardry/static/js/453.5c2d7ebc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.87e35a0d.css",
-    "static/js/main.2153026a.js"
+    "static/js/main.a4f89e0a.js"
   ]
 }
