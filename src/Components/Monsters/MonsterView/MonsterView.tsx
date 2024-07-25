@@ -46,25 +46,25 @@ const MonsterView: React.FC = () => {
   return (
     <Box className='data-view' >
       <Box mt={2}>
-        <Typography variant='h3'>{monster.שם}</Typography>
+        <Typography variant='h5'>{monster.שם}</Typography>
         <Divider />
       </Box>
       <Box mt={2}>
-        <Typography variant='h6'>דירוג קושי: {monster['דירוג קושי']}</Typography>
-        <Typography variant='h6'>קב"פ: {monster['תיאור קב"פ']}</Typography>
-        <Typography variant='h6'>התקפות: {monster['התקפות']}</Typography>
-        <Typography variant='h6'>גלגול הצלה: {monster['גלגול הצלה']}</Typography>
-        <Typography variant='h6'>דירוג קושי: {monster['דירוג קושי']}</Typography>
-        <Typography variant='h6'>נקודות נסיון: {monster['נקודות נסיון']}</Typography>
-        <Typography variant='h6'>מיוחד: {monster['מיוחד']}</Typography>
-        <Typography variant='h6'>עמוד: {monster['עמוד']}</Typography>
-        <Typography variant='h6'>נקודות פגיעה מחושבות:&nbsp;
-          <Typography component={"span"} fontWeight="bold" variant='h6'>
+        <Typography mt={1}>דירוג קושי: {monster['דירוג קושי']}</Typography>
+        <Typography mt={1}>קב"פ: {monster['תיאור קב"פ']}</Typography>
+        <Typography mt={1}>התקפות: {monster['התקפות']}</Typography>
+        <Typography mt={1}>גלגול הצלה: {monster['גלגול הצלה']}</Typography>
+        <Typography mt={1}>דירוג קושי: {monster['דירוג קושי']}</Typography>
+        <Typography mt={1}>נקודות נסיון: {monster['נקודות נסיון']}</Typography>
+        <Typography mt={1}>מיוחד: {monster['מיוחד']}</Typography>
+        <Typography mt={1}>עמוד: {monster['עמוד']}</Typography>
+        <Typography mt={1}>נקודות פגיעה מחושבות:&nbsp;
+          <Typography component={"span"} fontWeight="bold" mt={1}>
             {hitDice}
           </Typography>
         </Typography>
       </Box>
-      <Box mt={2}>
+      <Box mt={4}>
         <Button variant="contained" style={{ marginRight: '10px' }} onClick={() => navigate(-1)}>חזור</Button>
         <Button variant="outlined" style={{ marginRight: '10px' }} onClick={() => setHitDice(rollHitDice())}>חשב נק"פ</Button>
       </Box>

@@ -18,6 +18,13 @@ code {
   /* object-fit: cover; Cover the container, you can use 'contain' if you don't want to crop the image */
   
 }
+/* Styles.css */
+/* For mobile */
+.dataGridContainer {
+  width: '100%'; /* Full width on mobile */
+  
+}
+
 
 @media (min-width: 768px) { /* Adjust this value based on your needs */
   .responsiveImage {
@@ -25,4 +32,12 @@ code {
     width: 20%; /* Example adjustment */
     height: auto; /* Adjust if necessary */
   }
+  .dataGridContainer {
+    max-width: 2000px; /* Adjust max-width as needed for larger screens */
+    margin: 0 auto; /* Center the DataGrid */
+  
+  }
+
 }
+
+

@@ -52,17 +52,17 @@ export default function TabbedMonstersView() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-      <Typography variant='h4'>מפלצות למנחה המתחילה</Typography>
+      <Typography variant='h5'>מפלצות למנחה המתחילה</Typography>
         <Divider />
         <MonsterGrid type='מתחיל' />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Typography variant='h4'>מפלצות למנחה המתקדמת</Typography>
+        <Typography variant='h5'>מפלצות למנחה המתקדמת</Typography>
         <Divider />
         <MonsterGrid  type='מתקדם'/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-      <Typography variant='h4'>מפלצות נוספות</Typography>
+      <Typography variant='h5'>מפלצות נוספות</Typography>
         <Divider />
         <MonsterGrid  type='נוספות'/>
       </CustomTabPanel>

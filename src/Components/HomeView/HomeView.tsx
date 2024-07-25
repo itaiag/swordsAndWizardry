@@ -6,10 +6,10 @@ import Link from '@mui/material/Link';
 const HomeView: React.FC = () => {
   return (
     <Box>
-      <Typography variant='h3'>חרבות וכשפים</Typography>
+      <Typography variant='h4' mt={2}>חרבות וכשפים</Typography>
       <Divider />
       <Typography>
-        <Box component={"span"} display={"block"}>
+        <Box  mt={2} component={"span"} display={"block"}>
          ברוכים הבאים לאתר כלי עזר עבור מנחות של המשחק
          &nbsp;
         <Link href='https://swordsandwizardry.co.il/'>חרבות וכשפים</Link>

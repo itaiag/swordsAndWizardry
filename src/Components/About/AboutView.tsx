@@ -7,10 +7,10 @@ import Link from '@mui/material/Link';
 const HomeView: React.FC = () => {
   return (
     <Box>
-      <Typography variant='h3'>על האתר</Typography>
+      <Typography variant='h5'  mt={2}>על האתר</Typography>
 
       <Divider />
-      <Typography>
+      <Typography  mt={2}>
         ברוכים הבאים לאתר כלי עזר עבור מנחים של המשחק חרבות וכשפים
       </Typography>
       <Typography>
