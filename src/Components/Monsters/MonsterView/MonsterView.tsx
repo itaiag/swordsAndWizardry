@@ -7,21 +7,23 @@ import { useNavigate } from 'react-router-dom';
 import './MonsterView.css';
 import rollDice from '../../../utils/DiceRoller';
 import { useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
 
 const MonsterView: React.FC = () => {
-    
+
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const monsterName = params.get('name');
   const monster = monsters.find(monster => monster["שם"] === monsterName);
   const navigate = useNavigate();
-  const [hitDice, setHitDice] = useState(0); 
+  const [hitDice, setHitDice] = useState(0);
 
-  useEffect(() => {    
+  useEffect(() => {
     setHitDice(rollHitDice()); // Step 5: Update hitDice state
   }, [])
-  
-  
+
+
   if (!monster) {
     return <div>Monster not found</div>;
   }
@@ -39,30 +41,35 @@ const MonsterView: React.FC = () => {
     return total;
   }
 
-  
+
 
   return (
-    <div className='data-view' >
-      <h1>{monster.שם}</h1>
-      <Divider />
-      <p>דירוג קושי: {monster['דירוג קושי']}</p>
-      <p>קב"פ: {monster['תיאור קב"פ']}</p>
-      <p>התקפות: {monster['התקפות']}</p>
-      <p>גלגול הצלה: {monster['גלגול הצלה']}</p>
-      <p>דירוג קושי: {monster['דירוג קושי']}</p>
-      <p>נקודות נסיון: {monster['נקודות נסיון']}</p>
-      <p>מיוחד: {monster['מיוחד']}</p>
-      <p>עמוד: {monster['עמוד']}</p>
-      <p>נקודות פגיעה מחושבות: 
-        <span style={{marginRight: '5px', fontWeight: 'bold'}}>
-         {hitDice}
-        </span>
-      </p>
-      
-      <Button variant="contained" style={{ marginRight: '10px' }} onClick={() => navigate(-1)}>חזור</Button>
-      <Button variant="outlined" style={{ marginRight: '10px' }} onClick={() => setHitDice(rollHitDice())}>חשב נק"פ</Button>
-    </div>
-    
+    <Box className='data-view' >
+      <Box mt={2}>
+        <Typography variant='h3'>{monster.שם}</Typography>
+        <Divider />
+        </Box>
+        <Box mt={2}>  
+        <Typography variant='h6'>דירוג קושי: {monster['דירוג קושי']}</Typography>
+        <Typography variant='h6'>קב"פ: {monster['תיאור קב"פ']}</Typography>
+        <Typography variant='h6'>התקפות: {monster['התקפות']}</Typography>
+        <Typography variant='h6'>גלגול הצלה: {monster['גלגול הצלה']}</Typography>
+        <Typography variant='h6'>דירוג קושי: {monster['דירוג קושי']}</Typography>
+        <Typography variant='h6'>נקודות נסיון: {monster['נקודות נסיון']}</Typography>
+        <Typography variant='h6'>מיוחד: {monster['מיוחד']}</Typography>
+        <Typography variant='h6'>עמוד: {monster['עמוד']}</Typography>
+        <Typography variant='h6'>נקודות פגיעה מחושבות:&nbsp;
+          <Typography component={"span"} fontWeight="bold" variant='h6'>
+            {hitDice}
+          </Typography>
+        </Typography>
+      </Box>
+      <Box mt={2}>
+        <Button variant="contained" style={{ marginRight: '10px' }} onClick={() => navigate(-1)}>חזור</Button>
+        <Button variant="outlined" style={{ marginRight: '10px' }} onClick={() => setHitDice(rollHitDice())}>חשב נק"פ</Button>
+      </Box>
+    </Box>
+
   );
 };
 

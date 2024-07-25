@@ -24,8 +24,6 @@ const HomeView: React.FC = () => {
         </Box>
       </Typography>
       <img className='responsiveImage' src={`${process.env.PUBLIC_URL}/images/swords_and_wizardly_game.png`} alt="SnW Game" />
-      { }
-
     </Box>
 
   );
