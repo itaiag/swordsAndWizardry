@@ -48,8 +48,8 @@ const MonsterView: React.FC = () => {
       <Box mt={2}>
         <Typography variant='h3'>{monster.שם}</Typography>
         <Divider />
-        </Box>
-        <Box mt={2}>  
+      </Box>
+      <Box mt={2}>
         <Typography variant='h6'>דירוג קושי: {monster['דירוג קושי']}</Typography>
         <Typography variant='h6'>קב"פ: {monster['תיאור קב"פ']}</Typography>
         <Typography variant='h6'>התקפות: {monster['התקפות']}</Typography>
