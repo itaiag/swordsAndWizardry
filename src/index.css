@@ -12,30 +12,38 @@ code {
     monospace;
 }
 
-.responsiveImage {
+.main-box {
+  font-size: medium;
+}
+
+.image {
   width: 100%; /* Make the image fill the container */
   height: auto; /* Maintain aspect ratio */
   /* object-fit: cover; Cover the container, you can use 'contain' if you don't want to crop the image */
-  
-}
-/* Styles.css */
-/* For mobile */
-.dataGridContainer {
-  width: '100%'; /* Full width on mobile */
-  
+
 }
 
 
-@media (min-width: 768px) { /* Adjust this value based on your needs */
-  .responsiveImage {
-    /* Adjustments for mobile view */
-    width: 20%; /* Example adjustment */
-    height: auto; /* Adjust if necessary */
+/* For desktop */
+@media (min-width: 768px) {
+  .main-box {
+      /* Adjustments for larger screens can go here */
+      font-size: large;
+      height: 100%;
+      margin: 0;
+      display: block;
+      justify-content: center;
+      align-items: center;
+
+      /* Optional: Set a max-width for .treasure-view and margin auto for horizontal centering */
+      max-width: 60%; /* Adjust based on your design */
+      margin: auto;
+  
   }
-  .dataGridContainer {
-    max-width: 2000px; /* Adjust max-width as needed for larger screens */
-    margin: 0 auto; /* Center the DataGrid */
-  
+  .image {
+    /* Adjustments for mobile view */
+    width: 100%; /* Example adjustment */
+    height: auto; /* Adjust if necessary */
   }
 
 }

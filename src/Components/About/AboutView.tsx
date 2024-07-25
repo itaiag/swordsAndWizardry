@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 
 const HomeView: React.FC = () => {
   return (
-    <Box>
+    <Box className='main-box'>
       <Typography variant='h5'  mt={2}>על האתר</Typography>
 
       <Divider />
@@ -23,7 +23,7 @@ const HomeView: React.FC = () => {
           אתר העזר פותח ע"י איתי אגמון
         </Box>
       </Typography>
-      <img className='responsiveImage' src={`${process.env.PUBLIC_URL}/images/swords_and_wizardly_game.png`} alt="SnW Game" />
+      <img className="image" src={`${process.env.PUBLIC_URL}/images/swords_and_wizardly_game.png`} alt="SnW Game" />
     </Box>
 
   );

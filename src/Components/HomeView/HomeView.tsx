@@ -5,11 +5,11 @@ import Link from '@mui/material/Link';
 
 const HomeView: React.FC = () => {
   return (
-    <Box>
+    <Box className="main-box">
       <Typography variant='h4' mt={2}>חרבות וכשפים</Typography>
       <Divider />
       <Typography>
-        <Box  mt={2} component={"span"} display={"block"}>
+        <Box mt={2} component={"span"} display={"block"}>
          ברוכים הבאים לאתר כלי עזר עבור מנחות של המשחק
          &nbsp;
         <Link href='https://swordsandwizardry.co.il/'>חרבות וכשפים</Link>
@@ -19,7 +19,7 @@ const HomeView: React.FC = () => {
         האתר מכיל טבלאות, מחשבונים וכלי עזר נוספים שמסייעים לתהליך הנחיה שוטף יותר. הוא כולל רשימות של מפלצות, טבלאות חפצים קסומים ויקרי ערך ומחשבון לחישוב אקראי של אוצרות.
         </Box>
       </Typography>
-      <img className='responsiveImage' src={`${process.env.PUBLIC_URL}/images/home.jpg`} alt="Home Background" />
+      <img className='image' src={`${process.env.PUBLIC_URL}/images/home.jpg`} alt="Home Background" />
     </Box>
 
   );

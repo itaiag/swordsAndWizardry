@@ -1,12 +1,10 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 import {monsters} from '../../../data/Monsters'
-// import './MonsterGrid.css';
 import { Box } from '@mui/material';
 
 
 export default function MonsterGrid({type} : {type: string}) {
-
 
     const navigate = useNavigate();
 
@@ -36,7 +34,7 @@ export default function MonsterGrid({type} : {type: string}) {
     };
 
     return (
-        <Box className="dataGridContainer" style={{ height: '3900px' }}>
+        <Box className="main-box" style={{ height: '3900px' }}>
             <DataGrid
                 rows={getMonsters()}
                 columns={columns}

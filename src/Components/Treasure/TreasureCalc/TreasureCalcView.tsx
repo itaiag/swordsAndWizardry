@@ -6,7 +6,6 @@ import TreasureTable from './GeneratedTreasureTable';
 import { calculateItems } from './TreasureCalculator'
 import { Item } from '../Item'
 import Divider from '@mui/material/Divider';
-import '../Treasure.css';
 
 export default function TreasureCalcView() {
     const [textFieldValue, setTextFieldValue] = useState('');
@@ -26,28 +25,34 @@ export default function TreasureCalcView() {
     };
 
     return (
-        <Box
-            className='treasure-view'
-            component="form"
-            sx={{
-                '& > :not(style)': { m: 1, width: '35ch' },
-            }}
-            noValidate
-            autoComplete="off"
-        >
-            <TextField
-                id="standard-basic"
-                label="נקודות נסיון"
-                variant="standard"
-                value={textFieldValue}
-                type='number'
-                placeholder='הכנס נקודות נסיון'
-                InputLabelProps={{
-                    style: { direction: 'rtl' },
+        <Box className='main-box'>
+            <Box
+                className='main-box'
+                component="form"
+                alignContent='center'
+                sx={{
+                    '& > :not(style)': { m: 1, width: '100%' },
                 }}
-                onChange={handleTextFieldChange} />
-            <br />
-            <Button variant="contained" onClick={handleClick}>חשב</Button>
+                noValidate
+                autoComplete="off"
+            >
+
+                <TextField
+                    id="standard-basic"
+                    label="נקודות נסיון"
+                    variant="standard"
+                    value={textFieldValue}
+                    type='number'
+                    placeholder='הכנס נקודות נסיון'
+                    InputLabelProps={{
+                        style: { direction: 'rtl' },
+                    }}
+                    onChange={handleTextFieldChange} />
+                <br />
+                <Button
+
+                    variant="contained" onClick={handleClick}>חשב</Button>
+            </Box>
             {!items &&
 
                 <Box id='description'>
@@ -77,6 +82,7 @@ export default function TreasureCalcView() {
                 </Box>
             }
             {items && <TreasureTable items={items} />}
+
         </Box>
     );
 }

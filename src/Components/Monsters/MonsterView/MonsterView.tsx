@@ -4,7 +4,6 @@ import { monsters } from '../../../data/Monsters';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router-dom';
-import './MonsterView.css';
 import rollDice from '../../../utils/DiceRoller';
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
@@ -44,7 +43,7 @@ const MonsterView: React.FC = () => {
 
 
   return (
-    <Box className='data-view' >
+    <Box className='main-box' >
       <Box mt={2}>
         <Typography variant='h5'>{monster.שם}</Typography>
         <Divider />

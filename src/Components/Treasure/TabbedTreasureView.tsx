@@ -52,11 +52,11 @@ export default function TabbedMonstersView() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-      <Typography variant='h5'>מחשבון אוצר</Typography>        
+        <Typography variant='h5'>מחשבון אוצר</Typography>            
         <TreasureCalcView/>
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-      <Typography variant='h5'>רשימת אוצרות</Typography>        
+      <CustomTabPanel value={value} index={1}>            
+        <Typography variant='h5'>רשימת אוצרות</Typography>
         <TreasureListView/>
       </CustomTabPanel>
     </Box>
