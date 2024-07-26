@@ -13,13 +13,16 @@ code {
 }
 
 .main-box {
-  font-size: medium;
+  font-size: medium;  
+}
+
+.main-view {
+  margin-right: 10px;
 }
 
 .image {
   width: 100%; /* Make the image fill the container */
-  height: auto; /* Maintain aspect ratio */
-  /* object-fit: cover; Cover the container, you can use 'contain' if you don't want to crop the image */
+  height: auto; /* Maintain aspect ratio */  
 
 }
 

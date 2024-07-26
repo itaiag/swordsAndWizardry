@@ -43,7 +43,7 @@ const MonsterView: React.FC = () => {
 
 
   return (
-    <Box className='main-box' >
+    <Box className='main-box main-view' >
       <Box mt={2}>
         <Typography variant='h5'>{monster.שם}</Typography>
         <Divider />
