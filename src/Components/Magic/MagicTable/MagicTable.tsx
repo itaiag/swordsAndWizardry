@@ -20,11 +20,6 @@ export default function MagicTable({ magics }: { magics: string[] }) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 100 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align='right'>שם</TableCell>
-          </TableRow>
-        </TableHead>
         <TableBody>
           {magics.map((magic) => (
             <TableRow
