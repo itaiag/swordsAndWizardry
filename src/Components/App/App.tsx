@@ -8,6 +8,7 @@ import TabbedTreasureView from '../Treasure/TabbedTreasureView';
 import AboutView from '../About/AboutView';
 import TabbedMagicView from '../Magic/TabbedMagicView';
 import MagicView from '../Magic/MagicTable/MagicView';
+import DiceRoller from '../DiceRoller/DiceRoller';
 
 class App extends React.Component {
     render() {
@@ -24,6 +25,7 @@ class App extends React.Component {
                         <Route path="/magics" element={<TabbedMagicView />} />
                         <Route path="/magic" element={<MagicView />} />
                         <Route path="/about" element={<AboutView />} />
+                        <Route path="/roller" element={<DiceRoller />} />
                     </Routes>
                 </div>
             </Router>
