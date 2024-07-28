@@ -90,8 +90,8 @@ export default function DiceRoller() {
                 <Table sx={{ minWidth: 100, fontSize: '1.25rem' }} aria-label="simple table" >
                     <TableHead>
                         <TableRow>
-                            <TableCell align='right'>גלגול</TableCell>
-                            <TableCell align='right'>תוצאה</TableCell>
+                            <TableCell sx={{ fontSize: '1.25rem' }} align='right'>גלגול</TableCell>
+                            <TableCell sx={{ fontSize: '1.25rem' }} align='right'>תוצאה</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -100,10 +100,10 @@ export default function DiceRoller() {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 
                             >
-                                <TableCell component="th" scope="row" align='right'>
+                                <TableCell component="th" scope="row" align='right' sx={{ fontSize: '1.25rem' }}>
                                     {res.roll}
                                 </TableCell>
-                                <TableCell component="th" scope="row" align='right'>
+                                <TableCell component="th" scope="row" align='right' sx={{ fontSize: '1.25rem' }}>
                                     {res.result}
                                 </TableCell>
 
